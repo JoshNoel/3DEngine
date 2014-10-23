@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{18DDC440-7858-4FEF-AF77-E01DD34B80B2}</ProjectGuid>
+    <RootNamespace>My3DSim</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>build\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\lib-msvc120;C:\Projects\Libraries\glew-1.11.0\lib\Debug\Win32;C:\Projects\Libraries\Assimp\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;assimp.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\lib-msvc120;C:\Projects\Libraries\glew-1.11.0\lib\Release\Win32;C:\Projects\Libraries\Assimp\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;assimp.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\GLSim\core\Camera.cpp" />
+    <ClCompile Include="source\GLSim\core\Component.cpp" />
+    <ClCompile Include="source\GLSim\core\GlobalSettings.cpp" />
+    <ClCompile Include="source\GLSim\core\InputSystem.cpp" />
+    <ClCompile Include="source\GLSim\core\Light.cpp" />
+    <ClCompile Include="source\GLSim\core\Logic.cpp" />
+    <ClCompile Include="source\GLSim\core\LogicSystem.cpp" />
+    <ClCompile Include="source\GLSim\core\main.cpp" />
+    <ClCompile Include="source\GLSim\core\core.cpp" />
+    <ClCompile Include="source\GLSim\core\Mesh.cpp" />
+    <ClCompile Include="source\GLSim\core\Message.cpp" />
+    <ClCompile Include="source\GLSim\core\ModelLoader.cpp" />
+    <ClCompile Include="source\GLSim\core\Object.cpp" />
+    <ClCompile Include="source\GLSim\core\PhysicsSystem.cpp" />
+    <ClCompile Include="source\GLSim\core\RenderMesh.cpp" />
+    <ClCompile Include="source\GLSim\core\RenderSystem.cpp" />
+    <ClCompile Include="source\GLSim\core\shadermanager.cpp" />
+    <ClCompile Include="source\GLSim\core\System.cpp" />
+    <ClCompile Include="source\GLSim\core\Transform.cpp" />
+    <ClCompile Include="source\GLSim\core\window.cpp" />
+    <ClCompile Include="source\GLSim\logic\Logic_FreeFlyingCamera.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\GLSim\core\Camera.h" />
+    <ClInclude Include="headers\GLSim\core\Component.h" />
+    <ClInclude Include="headers\GLSim\core\core.h" />
+    <ClInclude Include="headers\GLSim\core\GlobalSettings.h" />
+    <ClInclude Include="headers\GLSim\core\InputSystem.h" />
+    <ClInclude Include="headers\GLSim\core\Light.h" />
+    <ClInclude Include="headers\GLSim\core\Logic.h" />
+    <ClInclude Include="headers\GLSim\core\LogicSystem.h" />
+    <ClInclude Include="headers\GLSim\core\Mesh.h" />
+    <ClInclude Include="headers\GLSim\core\Message.h" />
+    <ClInclude Include="headers\GLSim\core\ModelLoader.h" />
+    <ClInclude Include="headers\GLSim\core\Object.h" />
+    <ClInclude Include="headers\GLSim\core\PhysicsSystem.h" />
+    <ClInclude Include="headers\GLSim\core\RenderMesh.h" />
+    <ClInclude Include="headers\GLSim\core\RenderSystem.h" />
+    <ClInclude Include="headers\GLSim\core\shadermanager.h" />
+    <ClInclude Include="headers\GLSim\core\System.h" />
+    <ClInclude Include="headers\GLSim\core\Transform.h" />
+    <ClInclude Include="headers\GLSim\core\window.h" />
+    <ClInclude Include="headers\GLSim\logic\Logic_FreeFlyingCamera.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\BasicFragment.fs" />
+    <None Include="res\shaders\BasicVertex.vs" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
