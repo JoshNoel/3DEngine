@@ -1,4 +1,5 @@
 #include "GLSim/core/window.h"
+#include <Windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -10,6 +11,7 @@ static void resizeCallback(GLFWwindow* window, int width, int height)
 
 Window::Window()
 {
+
 	/* Initialize the library */
 	if(!glfwInit())
 		fprintf(stdout, "error initializing glfw");
@@ -38,8 +40,9 @@ Window::Window()
 	/* Make the window's context current */
 	glfwMakeContextCurrent(m_window);
 
-	GLenum err = glewInit();
 	glewExperimental = GL_TRUE;
+
+	GLenum err = glewInit();
 	if(GLEW_OK != err)
 	{
 		/* Problem: glewInit failed, something is seriously wrong. */

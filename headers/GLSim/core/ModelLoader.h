@@ -1,6 +1,7 @@
 #ifndef OGL_MODELLOADER_INCLUDED
 #define OGL_MODELLOADER_INCLUDED
 
+#include "GLSim/core/Object.h"
 #include "GLSim/core/Mesh.h"
 #include <string>
 
@@ -13,7 +14,7 @@ public:
 	~ModelLoader();
 	
 	//const Mesh& loadOBJ(const std::string& path) const;
-	bool loadMesh(const std::string& path, Mesh* mesh) const;
+	bool loadMesh(const std::string& path, Mesh* obj) const;
 };
 
 

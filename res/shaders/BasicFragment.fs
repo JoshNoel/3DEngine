@@ -1,6 +1,7 @@
 #version 330 core
 
 in vec3 normal0;
+in vec2 uv0;
 out vec4 FragColor;
 
 struct Camera
@@ -28,22 +29,50 @@ const int maxDirLights = 6;
 uniform DirLight dirLights[maxDirLights];
 uniform int numDirLights;
 
+uniform sampler2D tex;
+
+vec4 calcBaseLight(Light light, vec3 direction, vec3 normal);
+vec4 calcDirLight(DirLight dirLight, vec3 normal);
+
 void main()
 {
 	//FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-	vec4 baseColor = vec4(0.33, 0.55, 0.99, 1.0);
-	vec4 ambientColor = vec4(camera.ambientColor, 1.0) *camera.ambientIntensity;
-	vec4 dirLightsColor = vec4(0,0,0,0);
-	float diffuseF;
+	vec4 baseColor = vec4(0.33, 0.55, 0.99, 1.0);//texture(tex, uv0.xy);
+	vec4 lightTotal = vec4(camera.ambientColor, 1.0) *camera.ambientIntensity;
 	
 	for(int i = 0; i < numDirLights; ++i)
 	{
-		diffuseF = dot(normalize(normal0), -dirLights[i].direction);
-		if(diffuseF > 0)
-		{
-			dirLightsColor += vec4(dirLights[i].light.color, 1.0) * dirLights[i].light.intensity * diffuseF;
-		}
+		lightTotal += calcDirLight(dirLights[i], normal0);
 	}
 	
-	FragColor = vec4(normal0, 1.0);//baseColor * (ambientColor + dirLightsColor);
+	lightTotal = clamp(lightTotal,0,1);
+
+	FragColor = baseColor * lightTotal;
 }
+
+vec4 calcBaseLight(Light light, vec3 direction, vec3 normal)
+{
+	vec4 diffuseColor = vec4(0,0,0,0);
+	float diffuseF = dot(normal, -direction);
+	
+	if(diffuseF > 0)
+	{
+		diffuseColor = vec4(light.color, 1.0) * light.intensity * diffuseF;
+	}
+	
+	return diffuseColor;
+}
+
+vec4 calcDirLight(DirLight dirLight, vec3 normal)
+{
+	return calcBaseLight(dirLight.light, dirLight.direction, normal);
+}
+
+
+
+
+
+
+
+
+

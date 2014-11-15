@@ -1,5 +1,6 @@
 #include "GLSim/core/RenderSystem.h"
 #include "GLSim/core/Transform.h"
+#include <Windows.h>
 
 RenderSystem::RenderSystem()
 	:m_shaderManager()
@@ -11,6 +12,7 @@ RenderSystem::RenderSystem()
 
 	m_shaderManager.linkProgram(0);
 
+	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 }
@@ -48,7 +50,7 @@ void RenderSystem::render(float interp, Window* window)
 {
 	if(p_camera)
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		m_shaderManager.useProgram(0);
 
 		/*glEnableVertexAttribArray(0);
@@ -69,16 +71,27 @@ void RenderSystem::render(float interp, Window* window)
 			p_camera->getComponent<Transform>()->getModelNoScale(), true));*/
 
 
+		///////////////Directional Lights//////////////////////////
 		for(unsigned int i = 0; i < m_dirLightList.size(); ++i)
 		{
-			m_shaderManager.setUniform("dirLights[" + std::to_string(i) + "].light.color", glm::vec3(1, 0, 0));//m_dirLightList[i]->getComponent<Light>()->getColor());
+			m_shaderManager.setUniform("dirLights[" + std::to_string(i) + "].light.color", m_dirLightList[i]->getComponent<Light>()->getColor());//m_dirLightList[i]->getComponent<Light>()->getColor());
 			m_shaderManager.setUniform("dirLights[" + std::to_string(i) + "].light.intensity", m_dirLightList[i]->getComponent<Light>()->getIntensity());
-			m_shaderManager.setUniform("dirLights[" + std::to_string(i) + "].direction", glm::vec3(0, 4, 0));//m_dirLightList[i]->getComponent<Transform>()->getOrientation() * glm::vec3(0, -1, 0));
+			m_shaderManager.setUniform("dirLights[" + std::to_string(i) + "].direction", m_dirLightList[i]->getComponent<Transform>()->getOrientation() * glm::vec3(0, -1, 0));
 		}
 		m_shaderManager.setUniform("numDirLights", int(m_dirLightList.size()));
+
+
+
 		sendMessage(MessageRender(interp, &m_shaderManager, p_camera->getComponent<Camera>()->getPerspective() * view, true));
 	}
 
 	m_shaderManager.unbindProgram();
-	glfwSwapBuffers(window->getWindow());
+	if (window == nullptr)
+	{
+		OutputDebugString("RenderSystem Window pointer is null!!!!");
+	}
+	else
+	{
+		glfwSwapBuffers(window->getWindow());
+	}
 }

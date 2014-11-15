@@ -3,7 +3,7 @@
 
 Transform::Transform()
 	: Component(COMPONENT_TYPE::TRANSFORM),
-	m_orientation(0,0,0,1),
+	m_orientation(),
 	m_position(0,0,0),
 	m_scale(1, 1, 1),
 	m_model(1),
@@ -12,7 +12,7 @@ Transform::Transform()
 	m_scaleMat(1),
 	m_forward(0,0,-1),
 	m_up(0,1,0),
-	m_lastOrientation(0,0,0,1),
+	m_lastOrientation(),
 	m_lastPosition(0,0,0),
 	m_lastScale(1, 1, 1),
 	m_cameraMode(false)
@@ -134,7 +134,7 @@ void Transform::scale(const glm::vec3& v)
 void Transform::setPosition(const glm::vec3& v)
 {
 	m_lastPosition = v;
-	m_position = v;
+	m_position = glm::vec3(m_orientation * glm::vec4(v, 1));
 }
 
 void Transform::setScale(const glm::vec3& v)

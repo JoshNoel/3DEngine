@@ -13,6 +13,7 @@
 #include "GLSim/logic/Logic_FreeFlyingCamera.h"
 #include "GLSim/core/ModelLoader.h"
 #include "GLSim/core/Light.h"
+#include "GLSim/core/TextureManager.h"
 
 namespace ogl { class Core; }
 class Core
@@ -32,6 +33,8 @@ private:
 	PhysicsSystem m_physicsSystem;
 
 	ModelLoader m_modelLoader;
+	TextureManager m_textureManager;
+
 
 	Object cube;
 	Object camera;
@@ -42,6 +45,10 @@ private:
 
 	RenderMesh mesh;
 	Transform transform;
+
+	Object floor;
+	RenderMesh floorMesh;
+	Transform floorTransform;
 
 	Object dirLight1;
 	Light_Directional dirLightComp1;

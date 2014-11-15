@@ -18,7 +18,7 @@ private:
 
 //Data
 private:
-	float m_moveSpeed = 0.00005f;
+	float m_moveSpeed = 0.0002f;
 	float m_mouseSens = 0.1f;
 };
 

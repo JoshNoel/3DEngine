@@ -35,10 +35,10 @@ public:
 		else if(std::is_same<T, Light>::value)
 			type = Component::COMPONENT_TYPE::LIGHT;
 
-		else if(m_compMap.find(type) == m_compMap.end())
+		if(m_compMap.find(type) == m_compMap.end())
 			return nullptr;
-
-			return static_cast<T*>(m_compMap.at(type));
+		
+		return static_cast<T*>(m_compMap.at(type));
 	}
 
 	inline std::string& getName() { return m_name; }

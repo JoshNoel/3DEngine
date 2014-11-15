@@ -34,7 +34,7 @@ void Logic_FreeFlyingCamera::update()
 	{
 		//TODO: Epsilon comparison
 		//TODO: Local rotation
-		m_parent->getComponent<Transform>()->rotate(glm::vec3(0, 1, 0), -InputSystem::getInstance().getMouseDelta().x * m_mouseSens);
+		m_parent->getComponent<Transform>()->rotate(glm::vec3(0, 1, 0), InputSystem::getInstance().getMouseDelta().x * m_mouseSens);
 	}
 	if(InputSystem::getInstance().getMouseDelta().y != 0)
 	{
