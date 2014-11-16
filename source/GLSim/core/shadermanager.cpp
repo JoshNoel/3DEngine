@@ -14,13 +14,13 @@ ShaderManager::~ShaderManager()
 
 void ShaderManager::setUniform(const std::string& name, int n)
 {
-	int i = glGetUniformLocation(m_currentProgram, name.c_str());
+	//int i = glGetUniformLocation(m_currentProgram, name.c_str());
 	glUniform1i(glGetUniformLocation(m_currentProgram, name.c_str()), n);
 }
 
 void ShaderManager::setUniform(const std::string& name, float n)
 {
-	int i = glGetUniformLocation(m_currentProgram, name.c_str());
+	//int i = glGetUniformLocation(m_currentProgram, name.c_str());
 
 	glUniform1f(glGetUniformLocation(m_currentProgram, name.c_str()), n);
 }
@@ -37,7 +37,7 @@ void ShaderManager::setUniform(const std::string& name, const glm::vec4& v)
 
 void ShaderManager::setUniform(const std::string& name, const glm::mat4& m)
 {
-	int i = glGetUniformLocation(m_currentProgram, name.c_str());
+	//int i = glGetUniformLocation(m_currentProgram, name.c_str());
 	glUniformMatrix4fv(glGetUniformLocation(m_currentProgram, name.c_str()), 1, GL_FALSE, glm::value_ptr(m));
 }
 

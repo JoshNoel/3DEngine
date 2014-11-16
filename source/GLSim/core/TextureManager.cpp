@@ -11,19 +11,40 @@ int TextureManager::LoadTexture(const std::string& path, TEXTURE_TYPE type, int 
 {
 	FIBITMAP* bitmap;
 	GLuint tex;
-	bitmap = FreeImage_Load(FreeImage_GetFileType(path.c_str()), path.c_str());
+	FREE_IMAGE_FORMAT format = FreeImage_GetFileType(path.c_str());
+	if (format == FIF_UNKNOWN)
+	{
+		fprintf(stdout, "Image file format not supported: %s\n", path.c_str());
+		return -1;
+	}
+	bitmap = FreeImage_Load(format, path.c_str());
+	if (!bitmap)
+	{
+		fprintf(stdout, "Image file could not be loaded: %s\n", path.c_str());
+		return -1;
+	}
+	FIBITMAP* temp = FreeImage_ConvertTo32Bits(bitmap);
+	if (!bitmap)
+	{
+		fprintf(stdout, "Image file could not be converted to 32bits: %s\n", path.c_str());
+		return -1;
+	}
+	FreeImage_Unload(bitmap);
+	bitmap = temp;
+
+
 	glGenTextures(1, &tex);
 	//TODO: Allow different texture types
-	glBindTexture(tex, GL_TEXTURE_2D);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glBindTexture(GL_TEXTURE_2D, tex);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, FreeImage_GetWidth(bitmap), FreeImage_GetHeight(bitmap), 0, GL_RGBA, GL_UNSIGNED_BYTE, (void*)FreeImage_GetBits(bitmap));
+	glGenerateMipmap(GL_TEXTURE_2D);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	//glTexStorage2D(GL_TEXTURE_2D, numMipMaps, GL_RGBA8, FreeImage_GetWidth(bitmap), FreeImage_GetHeight(bitmap));
 	//glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, FreeImage_GetWidth(bitmap), FreeImage_GetHeight(bitmap), GL_RGBA8, 
 		//GL_UNSIGNED_BYTE, (void*)FreeImage_GetBits(bitmap));
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, FreeImage_GetWidth(bitmap), FreeImage_GetHeight(bitmap), 0, GL_RGBA8, GL_UNSIGNED_BYTE, (void*)FreeImage_GetBits(bitmap));
-	glGenerateMipmap(GL_TEXTURE_2D);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
 

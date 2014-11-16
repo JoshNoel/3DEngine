@@ -18,7 +18,7 @@ public:
 	void receiveMessage(Message&);
 	void setVertices(const std::vector<Vertex>&, const std::vector<GLushort>&);
 	void render(ShaderManager* manager);
-	///void setMaterial(Material* material) { p_material = material; }
+	void setMaterial(Material* material) { p_material = material; }
 	Material* getMaterial() { return p_material; }
 
 private:

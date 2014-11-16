@@ -46,6 +46,8 @@ private:
 	RenderMesh mesh;
 	Transform transform;
 
+	Material material;
+
 	Object floor;
 	RenderMesh floorMesh;
 	Transform floorTransform;

@@ -21,7 +21,8 @@ Core::Core(Window* window)
 	m_textureManager(),
 	dirLight1(),
 	dirLightComp1(),
-	dirLightTrans1()
+	dirLightTrans1(),
+	material()
 {
 	dirLightComp1.setColor(glm::vec3(1.0f, 1.0f, 1.0f));
 	dirLightTrans1.rotate(glm::vec3(1.0f, 0.0f, 0.5f), 15.0f);
@@ -30,8 +31,12 @@ Core::Core(Window* window)
 	dirLight1.addComponent(&dirLightTrans1);
 	m_renderSystem.addLight(&dirLight1);
 
+
+	material.setTexIndex(TextureManager::LoadTexture("C:/Projects/3Dsim/res/textures/gradient.png", TEXTURE_2D));
 	m_modelLoader.loadMesh("C:/Projects/3DSim/res/models/sphere.fbx", &mesh);
 	m_modelLoader.loadMesh("C:/Projects/3DSim/res/models/floor.fbx", &floorMesh);
+	mesh.setMaterial(&material);
+	floorMesh.setMaterial(&material);
 	InputSystem::setWindow(m_window);
 	/*static std::vector<GLfloat> data = {
 		-1.0f, -1.0f, -1.0f, // triangle 1 : begin

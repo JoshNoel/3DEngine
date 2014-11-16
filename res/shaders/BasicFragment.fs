@@ -37,7 +37,7 @@ vec4 calcDirLight(DirLight dirLight, vec3 normal);
 void main()
 {
 	//FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-	vec4 baseColor = vec4(0.33, 0.55, 0.99, 1.0);//texture(tex, uv0.xy);
+	vec4 baseColor = texture(tex, uv0);// + vec4(0.33, 0.55, 0.99, 1.0);//vec4(0,uv0.x, uv0.y,0);//vec4(0.33, 0.55, 0.99, 1.0);//
 	vec4 lightTotal = vec4(camera.ambientColor, 1.0) *camera.ambientIntensity;
 	
 	for(int i = 0; i < numDirLights; ++i)

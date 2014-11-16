@@ -9,7 +9,9 @@ RenderMesh::RenderMesh()
 	m_ibo(0)
 {
 	p_material = new Material;
-	p_material->setTexIndex(TextureManager::LoadTexture("C:/Users/Joshua/Pictures/Textures/MetalBase0121_9_S.jpg", TEXTURE_2D));
+	//assert(p_material != nullptr);
+	//p_material->setTexIndex(TextureManager::LoadTexture("C:/Projects/3Dsim/res/textures/gradient.png", TEXTURE_2D));
+	assert(p_material->getTexIndex() != -1);
 
 	////VAO////
 	glGenVertexArrays(1, &m_vao);
@@ -75,10 +77,10 @@ void RenderMesh::render(ShaderManager* shdrManager)
 {
 	glBindVertexArray(m_vao);
 	
-	shdrManager->setUniform("tex", 0);
-
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, TextureManager::getTexture(p_material->getTexIndex()));
+	shdrManager->setUniform("tex", 0);
+
 
 	glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_SHORT, 0);
 	//glDrawArrays(GL_TRIANGLES, 0, m_vertices.size()/2);
