@@ -1,6 +1,7 @@
 #include "GLSim/core/RenderSystem.h"
 #include "GLSim/core/Transform.h"
 #include <Windows.h>
+#include "CEGUI\CEGUI.h"
 
 RenderSystem::RenderSystem()
 	:m_shaderManager()
@@ -86,6 +87,9 @@ void RenderSystem::render(float interp, Window* window)
 	}
 
 	m_shaderManager.unbindProgram();
+
+	CEGUI::System::getSingleton().renderAllGUIContexts();
+
 	if (window == nullptr)
 	{
 		OutputDebugString("RenderSystem Window pointer is null!!!!");

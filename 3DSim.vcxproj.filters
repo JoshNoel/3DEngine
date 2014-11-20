@@ -152,9 +152,17 @@
     <ClInclude Include="headers\GLSim\core\TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\shaders\BasicFragment.fs" />
     <None Include="res\shaders\BasicVertex.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="3DSim.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

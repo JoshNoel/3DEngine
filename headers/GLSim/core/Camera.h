@@ -13,8 +13,8 @@ public:
 	void receiveMessage(Message& message);
 
 	inline void setFOV(float fov) { m_fov = fov; }
-	inline void setNearPlane(float near) { m_near = near; }
-	inline void setFarPlane(float far) { m_far = far; }
+	inline void setNearPlane(float n) { m_near = n; }
+	inline void setFarPlane(float f) { m_far = f; }
 	inline void setAR(float ar) { m_ar = ar; }
 	inline void setClearColor(glm::vec3 v) { m_clearColor = v; }
 	inline void setAmbientColor(glm::vec3 v) { m_ambientColor = v; m_updateCameraUniforms = true; }

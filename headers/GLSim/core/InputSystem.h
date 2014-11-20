@@ -34,6 +34,13 @@ private:
 	InputSystem(const InputSystem& copy);
 	InputSystem& operator=(const InputSystem& copy);
 
+	//Callbacks
+	static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
+	static void charCallback(GLFWwindow* window, unsigned int key);
+	static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
+	static void mouseMoveCallback(GLFWwindow* window, double xpos, double ypos);
+
+
 	static Window* m_window;
 	static double xpos, ypos;
 	static double deltax, deltay;

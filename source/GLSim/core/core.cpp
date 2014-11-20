@@ -1,6 +1,6 @@
 #include "GLSim/core/core.h"
-#include <Windows.h>
 #include "GLSim/core/RenderMesh.h"
+#include "CEGUI\CEGUI.h"
 
 Core::Core(Window* window)
 	:m_window(window),
@@ -133,7 +133,7 @@ void Core::run()
 
 		float interp = float(accum / PHYSICS_TIMESTEP);
 		m_renderSystem.render(interp, m_window);
-		update();
+		update(deltaTime);
 	}
 }
 
@@ -145,7 +145,8 @@ void Core::stepPhysics()
 	InputSystem::update();
 }
 
-void Core::update()
+void Core::update(LARGE_INTEGER i)
 {
 	glfwPollEvents();
+	CEGUI::System::getSingleton().injectTimePulse(i.QuadPart);
 }

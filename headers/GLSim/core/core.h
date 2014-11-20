@@ -1,6 +1,7 @@
 #ifndef OGL_CORE_INCLUDED
 #define OGL_CORE_INCLUDED
 
+#include <Windows.h>
 #include "GLSim/core/window.h"
 #include "GLSim/core/Object.h"
 #include "GLSim/core/RenderMesh.h"
@@ -23,7 +24,7 @@ public:
 	~Core();
 
 	void run();
-	void update();
+	void update(LARGE_INTEGER);
 	void stepPhysics();
 
 private:
