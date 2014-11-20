@@ -9,7 +9,8 @@ class Light : public Component
 public: 
 	enum LIGHT_TYPES
 	{
-		DIRECTIONAL
+		DIRECTIONAL,
+		POINT
 	};
 	Light(float intensity = 1.0f);
 	virtual ~Light();
@@ -40,6 +41,24 @@ public:
 	~Light_Directional()
 	{
 	}
+};
+
+struct Light_Point : public Light
+{
+public:
+	Light_Point(float intensity = 1.0f)
+		: Light(intensity)
+	{
+		m_lightType = POINT;
+	}
+
+	~Light_Point()
+	{
+	}
+
+protected:
+	glm::vec3 m_position;
+
 };
 
 #endif

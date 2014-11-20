@@ -34,7 +34,7 @@ int TextureManager::LoadTexture(const std::string& path, TEXTURE_TYPE type, int 
 
 
 	glGenTextures(1, &tex);
-	//TODO: Allow different texture types
+	//todo: Allow different texture types
 	glBindTexture(GL_TEXTURE_2D, tex);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, FreeImage_GetWidth(bitmap), FreeImage_GetHeight(bitmap), 0, GL_RGBA, GL_UNSIGNED_BYTE, (void*)FreeImage_GetBits(bitmap));
 	glGenerateMipmap(GL_TEXTURE_2D);

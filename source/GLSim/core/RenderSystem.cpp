@@ -71,6 +71,7 @@ void RenderSystem::render(float interp, Window* window)
 			p_camera->getComponent<Transform>()->getModelNoScale(), true));*/
 
 
+		
 		///////////////Directional Lights//////////////////////////
 		for(unsigned int i = 0; i < m_dirLightList.size(); ++i)
 		{
@@ -80,7 +81,15 @@ void RenderSystem::render(float interp, Window* window)
 		}
 		m_shaderManager.setUniform("numDirLights", int(m_dirLightList.size()));
 
-
+		///////////////Point Lights//////////////////////////
+		for (unsigned int i = 0; i < m_pointLightList.size(); ++i)
+		{
+			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].light.color", m_pointLightList[i]->getComponent<Light>()->getColor());
+			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].light.intensity", m_pointLightList[i]->getComponent<Light>()->getIntensity());
+			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].direction", m_pointLightList[i]->getComponent<Transform>()->getOrientation() * glm::vec3(0, -1, 0));
+			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].position", m_pointLightList[i]->getComponent<Transform>()->getPosition());
+		}
+		m_shaderManager.setUniform("numPointLights", int(m_pointLightList.size()));
 
 		sendMessage(MessageRender(interp, &m_shaderManager, p_camera->getComponent<Camera>()->getPerspective() * view, true));
 	}

@@ -27,7 +27,7 @@ bool Logic::setParent(Object* parent)
 		{
 			if(parent->getComponent<Transform>() == nullptr)
 			{
-				//TODO: Message Boxes
+				//todo: Message Boxes
 				fprintf(stdout, "Parent object, %s, does not have required TRANSFORM component, for logic, %s", parent->getName(), m_name);
 				return false;
 			}
@@ -37,7 +37,7 @@ bool Logic::setParent(Object* parent)
 		{
 			if(parent->getComponent<RenderMesh>() == nullptr)
 			{
-				//TODO: Message Boxes
+				//todo: Message Boxes
 				fprintf(stdout, "Parent object, %s, does not have required RENDER MESH component, for logic, %s", parent->getName(), m_name);
 				return false;
 			}
@@ -47,7 +47,7 @@ bool Logic::setParent(Object* parent)
 		{
 			if(parent->getComponent<Camera>() == nullptr)
 			{
-				//TODO: Message Boxes
+				//todo: Message Boxes
 				fprintf(stdout, "Parent object, %s, does not have required CAMERA component, for logic, %s", parent->getName(), m_name);
 				return false;
 			}

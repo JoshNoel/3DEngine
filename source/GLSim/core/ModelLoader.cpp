@@ -193,7 +193,7 @@ bool ModelLoader::loadMesh(const std::string& path, Mesh* mesh) const
 /*const Mesh& ModelLoader::loadOBJ(const std::string& path) const
 {
 	Mesh& mesh = Mesh();
-	//TODO: preallocate
+	//todo: preallocate
 	std::vector<GLfloat> vertices;
 	std::vector<GLushort> indices;
 

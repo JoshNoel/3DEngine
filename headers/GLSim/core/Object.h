@@ -20,7 +20,7 @@ public:
 
 	void addComponent(Component*);
 
-	//TODO: use enableIf
+	//todo: use enableIf
 	template<typename T>
 	T* getComponent()
 	{
