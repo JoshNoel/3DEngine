@@ -29,7 +29,7 @@ public:
 private:
 	float m_fov = 45.0f;
 	float m_near = 0.1f;
-	float m_far = 100.0f;
+	float m_far = 10000.0f;
 	float m_ar = 4.0f / 3.0f;
 
 	float m_ambientIntensity;

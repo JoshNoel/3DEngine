@@ -36,7 +36,7 @@ bool ModelLoader::loadMesh(const std::string& path, Mesh* obj) const
 	importer->Import(scene);
 	importer->Destroy();
 	FbxGeometryConverter converter(fbxManager);
-	converter.Triangulate(scene, true);
+	converter.Triangulate(scene, false);
 	FbxNode* root = scene->GetRootNode();
 
 	if(root)

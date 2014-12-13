@@ -30,9 +30,9 @@ public:
 			type = Component::COMPONENT_TYPE::RENDER_MESH;
 		else if(std::is_same<T, Transform>::value)
 			type = Component::COMPONENT_TYPE::TRANSFORM;
-		else if(std::is_same<T, Camera>::value)
+		else if (std::is_same<T, Camera>::value)
 			type = Component::COMPONENT_TYPE::CAMERA;
-		else if(std::is_same<T, Light>::value)
+		else if (std::is_same<T, Light>::value)
 			type = Component::COMPONENT_TYPE::LIGHT;
 
 		if(m_compMap.find(type) == m_compMap.end())

@@ -14,6 +14,7 @@
 #include "GLSim/core/ModelLoader.h"
 #include "GLSim/core/Light.h"
 #include "GLSim/core/TextureManager.h"
+#include <climits>
 
 namespace ogl { class Core; }
 class Core
@@ -56,8 +57,18 @@ private:
 	Light_Directional dirLightComp1;
 	Transform dirLightTrans1;
 
+	Object pointLight1;
+	Light_Point pointLightComp1;
+	Transform pointLightTrans1;
+
 	const double PHYSICS_TIMESTEP = 1000000.0 / 120.0;
 	double accum = 0.0;
+
+	float siny;
+	float cosx;
+	float accumulator;
+	float theta;
+	bool reverse;
 };
 
 #endif

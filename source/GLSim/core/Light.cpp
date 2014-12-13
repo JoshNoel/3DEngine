@@ -2,7 +2,8 @@
 
 Light::Light(float intensity)
 	: Component(Component::COMPONENT_TYPE::LIGHT),
-	m_intensity(intensity)
+	m_intensity(intensity),
+	m_lightType(DIRECTIONAL)
 {
 }
 

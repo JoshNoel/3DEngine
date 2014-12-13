@@ -33,10 +33,15 @@ bool RenderSystem::addLight(Object* l)
 {
 	if(l->getComponent<Light>() != nullptr)
 	{
-		switch(l->getComponent<Light>()->getLightType())
+		//int i = l->getComponent<Light>()->getType();
+		switch(l->getComponent<Light>()->getType())
 		{
 		case Light::LIGHT_TYPES::DIRECTIONAL:
 			m_dirLightList.push_back(l);
+			break;
+		case Light::LIGHT_TYPES::POINT:
+			m_pointLightList.push_back(l);
+			break;
 		default:
 			break;
 		}
@@ -86,8 +91,10 @@ void RenderSystem::render(float interp, Window* window)
 		{
 			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].light.color", m_pointLightList[i]->getComponent<Light>()->getColor());
 			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].light.intensity", m_pointLightList[i]->getComponent<Light>()->getIntensity());
-			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].direction", m_pointLightList[i]->getComponent<Transform>()->getOrientation() * glm::vec3(0, -1, 0));
+			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].linear", m_pointLightList[i]->getComponent<Light>()->m_linear);
+			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].constant", m_pointLightList[i]->getComponent<Light>()->m_constant);
 			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].position", m_pointLightList[i]->getComponent<Transform>()->getPosition());
+			m_shaderManager.setUniform("pointLights[" + std::to_string(i) + "].exponent", m_pointLightList[i]->getComponent<Light>()->m_exp);
 		}
 		m_shaderManager.setUniform("numPointLights", int(m_pointLightList.size()));
 

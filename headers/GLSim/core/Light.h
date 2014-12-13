@@ -9,8 +9,8 @@ class Light : public Component
 public: 
 	enum LIGHT_TYPES
 	{
-		DIRECTIONAL,
-		POINT
+		DIRECTIONAL = 0,
+		POINT = 1
 	};
 	Light(float intensity = 1.0f);
 	virtual ~Light();
@@ -21,12 +21,18 @@ public:
 	inline void setColor(glm::vec3 v) { m_color = v; }
 	inline glm::vec3 getColor() { return m_color; }
 
-	inline LIGHT_TYPES getLightType() { return m_lightType; }
+	inline void setType(LIGHT_TYPES type) { m_lightType = type; }
+	inline LIGHT_TYPES getType() { return m_lightType; }
 
-protected:
+
+
+public:
 	float m_intensity;
 	glm::vec3 m_color;
 	LIGHT_TYPES m_lightType;
+	float m_constant;
+	float m_linear;
+	float m_exp;
 };
 
 struct Light_Directional : public Light
@@ -43,6 +49,7 @@ public:
 	}
 };
 
+//Contstant-Linear-Quadratic atten
 struct Light_Point : public Light
 {
 public:
@@ -50,14 +57,17 @@ public:
 		: Light(intensity)
 	{
 		m_lightType = POINT;
+		m_constant = 0.0f;
+		m_linear = 0.0f;
+		m_exp = 1.0f;
 	}
 
 	~Light_Point()
 	{
 	}
+	
+public:
 
-protected:
-	glm::vec3 m_position;
 
 };
 

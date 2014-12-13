@@ -10,6 +10,7 @@ uniform mat4 M;
 out vec3 worldPos0;
 out vec3 normal0;
 out vec2 uv0;
+//out mat4 M;
 
 void main()
 {
@@ -17,5 +18,7 @@ void main()
 	normal0 = normalize(M * vec4(normal, 0)).xyz;
 	//normal0 = normal;
 	worldPos0 = normalize(M * vec4(pos, 1)).xyz;
+	//worldPos0 = pos;
+
 	uv0 = uv;
 }
