@@ -104,10 +104,29 @@ void RenderSystem::render(float interp, Window* window)
 	m_shaderManager.unbindProgram();
 	if (window == nullptr)
 	{
-		OutputDebugString("RenderSystem Window pointer is null!!!!");
+		OutputDebugString((LPCWSTR)"RenderSystem Window pointer is null!!!!");
 	}
 	else
 	{
 		glfwSwapBuffers(window->getWindow());
 	}
 }
+/*Qt with regular event loop for editor
+Embedded qwindow use qwidget::createwindowcontainer
+REnder to this window
+SA: replace w/ custom event loop
+http://stackoverflow.com/questions/12718296/is-there-a-way-to-use-qt-without-qapplicationexec
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

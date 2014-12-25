@@ -2,7 +2,7 @@
 #include <thread>
 
 
-int main(void)
+int main()
 {
 	Window window;
 	Core core(&window);
