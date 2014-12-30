@@ -2,16 +2,28 @@
 #include "GLSim/core/Transform.h"
 #include <Windows.h>
 
-RenderSystem::RenderSystem()
-	:m_shaderManager()
+RenderSystem::RenderSystem(bool shouldDefer)
+	:m_shaderManager(),
+	m_deferred(shouldDefer)
 {
-	if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::VERTEX, "C:/Projects/3DSim/res/shaders/BasicVertex.vs", 0))
-		fprintf(stdout, "Error adding Vertex Shader\n");
-	if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::FRAGMENT, "C:/Projects/3DSim/res/shaders/BasicFragment.fs", 0))
-		fprintf(stdout, "Error adding Fragment Shader\n");
+	if(!m_deferred)
+	{
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::VERTEX, "C:/Projects/3DSim/res/shaders/BasicVertex.vs", 0))
+			fprintf(stdout, "Error adding Vertex Shader\n");
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::FRAGMENT, "C:/Projects/3DSim/res/shaders/BasicFragment.fs", 0))
+			fprintf(stdout, "Error adding Fragment Shader\n");
+	}
+	else
+	{
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::VERTEX, "C:/Projects/3DSim/res/shaders/BasicDeferredVertex.vs", 0))
+			fprintf(stdout, "Error adding Vertex Shader\n");
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::FRAGMENT, "C:/Projects/3DSim/res/shaders/BasicDeferredFragment.fs", 0))
+			fprintf(stdout, "Error adding Fragment Shader\n");
+	}
 
 	m_shaderManager.linkProgram(0);
 
+	glFrontFace(GL_CCW);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
@@ -27,6 +39,16 @@ void RenderSystem::setCamera(Object* camera)
 	p_camera = camera;
 	glm::vec3 color = p_camera->getComponent<Camera>()->getClearColor();
 	glClearColor(color.x, color.y, color.z, 1.0);
+}
+
+bool RenderSystem::isDeferred()
+{ 
+	return m_deferred;
+}
+
+void RenderSystem::setDeferred(bool v)
+{
+	m_deferred = v;
 }
 
 bool RenderSystem::addLight(Object* l)
@@ -71,10 +93,20 @@ void RenderSystem::render(float interp, Window* window)
 		Transform* cam = p_camera->getComponent<Transform>();
 		//glm::mat4 view = cam->getTranslationMat()._inverse() * cam->getRotationMat();
 		glm::mat4 view = glm::inverse(cam->getTranslationMat() * cam->getRotationMat());//glm::lookAt(cam->getPosition(), cam->getForward(), cam->getUp());
+		/*glm::mat4 t = cam->getRotationMat();
+		fprintf(stdout, "(%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d)\n",
+			t[0][0], t[0][1], t[0][2], t[0][3],
+			t[1][0], t[1][1], t[1][2], t[1][3],
+			t[2][0], t[2][1], t[2][2], t[2][3],
+			t[3][0], t[3][1], t[3][2], t[3][3]);*/
+		//fprintf(stdout, "(%d, %d, %d) || (%d, %d, %d)\n", cam->getPosition().x, cam->getPosition().y, cam->getPosition().z, cam->getOrientation().x, cam->getOrientation().y, cam->getOrientation().z);
 		//glm::mat4 v2 = glm::lookAt(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 		/*sendMessage(MessageRender(interp, &m_shaderManager, p_camera->getComponent<Camera>()->getPerspective() *
 			p_camera->getComponent<Transform>()->getModelNoScale(), true));*/
 
+		//m_shaderManager.setUniform("MVP", p_camera->getComponent<Camera>()->getPerspective() * glm::translate(glm::vec3(0, 0, -6)));
+
+		//m_shaderManager.setUniform("M", glm::mat4());
 
 		
 		///////////////Directional Lights//////////////////////////
@@ -104,7 +136,7 @@ void RenderSystem::render(float interp, Window* window)
 	m_shaderManager.unbindProgram();
 	if (window == nullptr)
 	{
-		OutputDebugString((LPCWSTR)"RenderSystem Window pointer is null!!!!");
+		OutputDebugString((LPCSTR)"RenderSystem Window pointer is null!!!!");
 	}
 	else
 	{

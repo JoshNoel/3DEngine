@@ -50,10 +50,11 @@ bool ModelLoader::loadMesh(const std::string& path, Mesh* obj) const
 			FbxMesh* mesh = Object->GetMesh();
 			//if(mesh->GenerateNormals(true))
 				//printf("generated normals....");
-			indices.resize(mesh->GetPolygonVertexCount());
-			vertices.resize(mesh->GetPolygonVertexCount());
+			
 			if(mesh != nullptr)
 			{
+				indices.resize(mesh->GetPolygonVertexCount());
+				vertices.resize(mesh->GetPolygonVertexCount());
 				FbxVector4* controlPoints = mesh->GetControlPoints();
 				int loops = 0;
 				for(unsigned int i = 0; i < mesh->GetPolygonCount(); ++i)

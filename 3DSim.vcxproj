@@ -78,12 +78,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBXSDK_SHARED;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projects\3DSim\src;C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\source;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\lib-msvc120;C:\Projects\Libraries\glew-1.11.0\lib\Debug\Win32;C:\Projects\Libraries\Assimp\lib\x86;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x86\debug;C:\Projects\Libraries\FreeImage\FreeImage\Dist</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;glew32d.lib;libfbxsdk.lib;FreeImaged.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;glew32d.lib;libfbxsdk.lib;FreeImaged.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -94,12 +94,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBXSDK_SHARED;UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projects\3DSim\src;C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Projects\Libraries\glfw-3.0.4.bin.WIN64\lib-msvc120;C:\Projects\Libraries\glew-1.11.0\lib\Debug\x64;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x64\debug;C:\Projects\Libraries\FreeImage\FreeImage\Dist;C:\Projects\Libraries\Qt-5.3\msvc2013_opengl\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;glew32d.lib;libfbxsdk.lib;FreeImaged.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;glew32d.lib;libfbxsdk.lib;FreeImaged.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalOptions> /SUBSYSTEM:WINDOWS</AdditionalOptions>
@@ -113,14 +113,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBXSDK_SHARED;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projects\3DSim\src;C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\lib-msvc120;C:\Projects\Libraries\glew-1.11.0\lib\Release\Win32;C:\Projects\Libraries\Assimp\lib\x86;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x86\release;C:\Projects\Libraries\FreeImage\FreeImage\Dist</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;assimp.lib;glew32.lib;libfbxsdk.lib;FreeImage.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;assimp.lib;glew32.lib;libfbxsdk.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -132,51 +132,51 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBXSDK_SHARED;UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Projects\3DSim\src;C:\Projects\Libraries\glew-1.11.0\include;C:\Projects\Libraries\glfw-3.0.4.WIN32\glfw-3.0.4.WIN32\include;C:\Projects\3DSim\headers;C:\Projects\Libraries\glm\include;C:\Projects\Libraries\Assimp\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;C:\Projects\Libraries\FreeImage\FreeImage\Dist;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\Projects\Libraries\glfw-3.0.4.bin.WIN64\lib-msvc120;C:\Projects\Libraries\glew-1.11.0\lib\Release\x64;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x64\release;C:\Projects\Libraries\FreeImage\FreeImage\Dist;C:\Projects\Libraries\Qt-5.3\msvc2013_opengl\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;assimp.lib;glew32.lib;libfbxsdk.lib;FreeImage.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3dll.lib;opengl32.lib;assimp.lib;glew32.lib;libfbxsdk.lib;FreeImage.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
       <AdditionalOptions> /SUBSYSTEM:WINDOWS</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\GLSim\core\Camera.cpp" />
-    <ClCompile Include="source\GLSim\core\Component.cpp" />
-    <ClCompile Include="source\GLSim\core\GlobalSettings.cpp" />
-    <ClCompile Include="source\GLSim\core\InputSystem.cpp" />
-    <ClCompile Include="source\GLSim\core\Light.cpp" />
-    <ClCompile Include="source\GLSim\core\Logic.cpp" />
-    <ClCompile Include="source\GLSim\core\LogicSystem.cpp" />
-    <ClCompile Include="source\GLSim\core\main.cpp">
+    <ClCompile Include="src\GLSim\core\Camera.cpp" />
+    <ClCompile Include="src\GLSim\core\Component.cpp" />
+    <ClCompile Include="src\GLSim\core\GlobalSettings.cpp" />
+    <ClCompile Include="src\GLSim\core\InputSystem.cpp" />
+    <ClCompile Include="src\GLSim\core\Light.cpp" />
+    <ClCompile Include="src\GLSim\core\Logic.cpp" />
+    <ClCompile Include="src\GLSim\core\LogicSystem.cpp" />
+    <ClCompile Include="src\GLSim\core\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\core.cpp" />
-    <ClCompile Include="source\GLSim\core\Material.cpp" />
-    <ClCompile Include="source\GLSim\core\Mesh.cpp" />
-    <ClCompile Include="source\GLSim\core\Message.cpp" />
-    <ClCompile Include="source\GLSim\core\ModelLoader.cpp" />
-    <ClCompile Include="source\GLSim\core\Object.cpp" />
-    <ClCompile Include="source\GLSim\core\PhysicsSystem.cpp" />
-    <ClCompile Include="source\GLSim\core\RenderMesh.cpp" />
-    <ClCompile Include="source\GLSim\core\RenderSystem.cpp" />
-    <ClCompile Include="source\GLSim\core\shadermanager.cpp" />
-    <ClCompile Include="source\GLSim\core\System.cpp" />
-    <ClCompile Include="source\GLSim\core\TextureManager.cpp" />
-    <ClCompile Include="source\GLSim\core\Transform.cpp" />
-    <ClCompile Include="source\GLSim\core\window.cpp" />
-    <ClCompile Include="source\GLSim\logic\Logic_FreeFlyingCamera.cpp" />
+    <ClCompile Include="src\GLSim\core\core.cpp" />
+    <ClCompile Include="src\GLSim\core\Material.cpp" />
+    <ClCompile Include="src\GLSim\core\Mesh.cpp" />
+    <ClCompile Include="src\GLSim\core\Message.cpp" />
+    <ClCompile Include="src\GLSim\core\ModelLoader.cpp" />
+    <ClCompile Include="src\GLSim\core\Object.cpp" />
+    <ClCompile Include="src\GLSim\core\PhysicsSystem.cpp" />
+    <ClCompile Include="src\GLSim\core\RenderMesh.cpp" />
+    <ClCompile Include="src\GLSim\core\RenderSystem.cpp" />
+    <ClCompile Include="src\GLSim\core\shadermanager.cpp" />
+    <ClCompile Include="src\GLSim\core\System.cpp" />
+    <ClCompile Include="src\GLSim\core\TextureManager.cpp" />
+    <ClCompile Include="src\GLSim\core\Transform.cpp" />
+    <ClCompile Include="src\GLSim\core\window.cpp" />
+    <ClCompile Include="src\GLSim\logic\Logic_FreeFlyingCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="headers\GLSim\core\Camera.h">
+    <CustomBuild Include="src\GLSim\core\Camera.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -206,7 +206,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Component.h">
+    <CustomBuild Include="src\GLSim\core\Component.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -236,7 +236,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\core.h">
+    <CustomBuild Include="src\GLSim\core\core.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -266,7 +266,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\GlobalSettings.h">
+    <CustomBuild Include="src\GLSim\core\GlobalSettings.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -296,7 +296,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\InputSystem.h">
+    <CustomBuild Include="src\GLSim\core\InputSystem.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -326,7 +326,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Light.h">
+    <CustomBuild Include="src\GLSim\core\Light.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -356,7 +356,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Logic.h">
+    <CustomBuild Include="src\GLSim\core\Logic.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -386,7 +386,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\LogicSystem.h">
+    <CustomBuild Include="src\GLSim\core\LogicSystem.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -416,7 +416,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Material.h">
+    <CustomBuild Include="src\GLSim\core\Material.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -446,7 +446,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Mesh.h">
+    <CustomBuild Include="src\GLSim\core\Mesh.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -476,7 +476,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Message.h">
+    <CustomBuild Include="src\GLSim\core\Message.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -506,7 +506,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\ModelLoader.h">
+    <CustomBuild Include="src\GLSim\core\ModelLoader.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -536,7 +536,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Object.h">
+    <CustomBuild Include="src\GLSim\core\Object.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -566,7 +566,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\PhysicsSystem.h">
+    <CustomBuild Include="src\GLSim\core\PhysicsSystem.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -596,7 +596,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\RenderMesh.h">
+    <CustomBuild Include="src\GLSim\core\RenderMesh.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -626,7 +626,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\RenderSystem.h">
+    <CustomBuild Include="src\GLSim\core\RenderSystem.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -656,7 +656,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\shadermanager.h">
+    <CustomBuild Include="src\GLSim\core\shadermanager.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -686,7 +686,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\System.h">
+    <CustomBuild Include="src\GLSim\core\System.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -716,7 +716,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\TextureManager.h">
+    <CustomBuild Include="src\GLSim\core\TextureManager.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -746,7 +746,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Transform.h">
+    <CustomBuild Include="src\GLSim\core\Transform.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -776,7 +776,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\window.h">
+    <CustomBuild Include="src\GLSim\core\window.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>
@@ -806,7 +806,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\logic\Logic_FreeFlyingCamera.h">
+    <CustomBuild Include="src\GLSim\logic\Logic_FreeFlyingCamera.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Custom Build Tools</Message>

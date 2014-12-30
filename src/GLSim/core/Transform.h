@@ -21,8 +21,8 @@ public:
 	void render(float interp, ShaderManager* manager, glm::mat4, bool);
 
 	void translate(const glm::vec3&);
+
 	void rotate(const glm::vec3& axis, float angle);
-	void rotateCam(const glm::vec3& axis, float angle);
 
 	void scale(const glm::vec3&);
 

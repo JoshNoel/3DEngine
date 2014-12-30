@@ -29,6 +29,8 @@ public:
 
 private:
 	Window* m_window;
+
+	//Systems
 	RenderSystem m_renderSystem;
 	LogicSystem m_logicSystem;
 	PhysicsSystem m_physicsSystem;
@@ -36,23 +38,21 @@ private:
 	ModelLoader m_modelLoader;
 	TextureManager m_textureManager;
 
-
-	Object cube;
+	
+	//Objects
 	Object camera;
 	Camera cameraComp;
 	Transform cameraTransform;
 
+	Object scene;
+	Transform transform;
+	RenderMesh mesh;
+
+	//Camera
 	Logic_FreeFlyingCamera logicCamera;
 
-	RenderMesh mesh;
-	Transform transform;
 
-	Material material;
-
-	Object floor;
-	RenderMesh floorMesh;
-	Transform floorTransform;
-
+	//Lights
 	Object dirLight1;
 	Light_Directional dirLightComp1;
 	Transform dirLightTrans1;
@@ -64,6 +64,8 @@ private:
 	const double PHYSICS_TIMESTEP = 1000000.0 / 120.0;
 	double accum = 0.0;
 
+
+	///////////////TEST//////////////////
 	float siny;
 	float cosx;
 	float accumulator;

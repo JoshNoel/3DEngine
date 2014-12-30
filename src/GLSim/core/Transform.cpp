@@ -116,9 +116,9 @@ void Transform::translate(const glm::vec3& v)
 	m_position += glm::vec3(m_orientation * glm::vec4(v, 1));
 }
 
+
 void Transform::rotate(const glm::vec3& axis, float angle)
 {
-	//glm::vec3 a = glm::vec3(m_orientation * glm::vec4(axis, 1));
 	if(axis == glm::vec3(0,1,0) && m_cameraMode)
 		m_orientation = glm::normalize(glm::angleAxis(angle, axis)) * m_orientation;
 	else

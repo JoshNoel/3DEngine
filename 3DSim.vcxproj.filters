@@ -15,143 +15,143 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\GLSim\core\main.cpp">
+    <ClCompile Include="src\GLSim\core\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\window.cpp">
+    <ClCompile Include="src\GLSim\core\Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\core.cpp">
+    <ClCompile Include="src\GLSim\core\core.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\shadermanager.cpp">
+    <ClCompile Include="src\GLSim\core\GlobalSettings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Object.cpp">
+    <ClCompile Include="src\GLSim\core\InputSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Component.cpp">
+    <ClCompile Include="src\GLSim\core\Light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\RenderMesh.cpp">
+    <ClCompile Include="src\GLSim\core\Logic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Mesh.cpp">
+    <ClCompile Include="src\GLSim\core\LogicSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Transform.cpp">
+    <ClCompile Include="src\GLSim\core\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\System.cpp">
+    <ClCompile Include="src\GLSim\core\Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Message.cpp">
+    <ClCompile Include="src\GLSim\core\Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\RenderSystem.cpp">
+    <ClCompile Include="src\GLSim\core\Message.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Camera.cpp">
+    <ClCompile Include="src\GLSim\core\ModelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\InputSystem.cpp">
+    <ClCompile Include="src\GLSim\core\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\LogicSystem.cpp">
+    <ClCompile Include="src\GLSim\core\PhysicsSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Logic.cpp">
+    <ClCompile Include="src\GLSim\core\RenderMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\logic\Logic_FreeFlyingCamera.cpp">
+    <ClCompile Include="src\GLSim\core\RenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\GlobalSettings.cpp">
+    <ClCompile Include="src\GLSim\core\shadermanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\ModelLoader.cpp">
+    <ClCompile Include="src\GLSim\core\System.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Light.cpp">
+    <ClCompile Include="src\GLSim\core\TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\PhysicsSystem.cpp">
+    <ClCompile Include="src\GLSim\core\Transform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\Material.cpp">
+    <ClCompile Include="src\GLSim\core\window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\GLSim\core\TextureManager.cpp">
+    <ClCompile Include="src\GLSim\logic\Logic_FreeFlyingCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="res\shaders\BasicFragment.fs" />
     <CustomBuild Include="res\shaders\BasicVertex.vs" />
-    <CustomBuild Include="headers\GLSim\core\Camera.h">
+    <CustomBuild Include="src\GLSim\core\Camera.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Component.h">
+    <CustomBuild Include="src\GLSim\core\Component.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\core.h">
+    <CustomBuild Include="src\GLSim\core\core.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\GlobalSettings.h">
+    <CustomBuild Include="src\GLSim\core\GlobalSettings.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\InputSystem.h">
+    <CustomBuild Include="src\GLSim\core\InputSystem.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Light.h">
+    <CustomBuild Include="src\GLSim\core\Light.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Logic.h">
+    <CustomBuild Include="src\GLSim\core\Logic.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\LogicSystem.h">
+    <CustomBuild Include="src\GLSim\core\LogicSystem.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Material.h">
+    <CustomBuild Include="src\GLSim\core\Material.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Mesh.h">
+    <CustomBuild Include="src\GLSim\core\Mesh.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Message.h">
+    <CustomBuild Include="src\GLSim\core\Message.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\ModelLoader.h">
+    <CustomBuild Include="src\GLSim\core\ModelLoader.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Object.h">
+    <CustomBuild Include="src\GLSim\core\Object.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\PhysicsSystem.h">
+    <CustomBuild Include="src\GLSim\core\PhysicsSystem.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\RenderMesh.h">
+    <CustomBuild Include="src\GLSim\core\RenderMesh.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\RenderSystem.h">
+    <CustomBuild Include="src\GLSim\core\RenderSystem.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\shadermanager.h">
+    <CustomBuild Include="src\GLSim\core\shadermanager.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\System.h">
+    <CustomBuild Include="src\GLSim\core\System.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\TextureManager.h">
+    <CustomBuild Include="src\GLSim\core\TextureManager.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\Transform.h">
+    <CustomBuild Include="src\GLSim\core\Transform.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\core\window.h">
+    <CustomBuild Include="src\GLSim\core\window.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="headers\GLSim\logic\Logic_FreeFlyingCamera.h">
+    <CustomBuild Include="src\GLSim\logic\Logic_FreeFlyingCamera.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
