@@ -5,7 +5,9 @@
 int main()
 {
 	Window window;
-	Core core(&window);
+	int width, height;
+	glfwGetWindowSize(window.getWindow(), &width, &height);
+	Core core(&window, width, height);
 	core.run();
 	glfwTerminate();
 	return 0;

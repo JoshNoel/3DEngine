@@ -56,7 +56,7 @@ void main()
 	//normal0 = normalize(transpose(inverse(M)) * vec4(normal0, 0)).xyz;
 	//pos0 = normalize(M * vec4(pos0, 1)).xyz;
 	//FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-	vec4 baseColor = vec4(0.33, 0.55, 0.99, 1.0);// texture(tex, uv0);// + vec4(0.33, 0.55, 0.99, 1.0);//vec4(0,uv0.x, uv0.y,0);////
+	vec4 baseColor = texture(tex, uv0); //vec4(0.33, 0.55, 0.99, 1.0);// texture(tex, uv0);// + vec4(0.33, 0.55, 0.99, 1.0);//vec4(0,uv0.x, uv0.y,0);////
 	vec4 lightTotal = vec4(camera.ambientColor, 1.0) *camera.ambientIntensity;
 	
 	for(int i = 0; i < numDirLights; ++i)

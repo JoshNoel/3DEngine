@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GLSim\core\GBuffer.cpp" />
     <ClCompile Include="src\GLSim\core\Camera.cpp" />
     <ClCompile Include="src\GLSim\core\Component.cpp" />
     <ClCompile Include="src\GLSim\core\GlobalSettings.cpp" />
@@ -898,6 +899,9 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </AdditionalInputs>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GLSim\core\GBuffer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -20,7 +20,7 @@ namespace ogl { class Core; }
 class Core
 {
 public:
-	Core(Window*);
+	Core(Window*, int, int);
 	~Core();
 
 	void run();

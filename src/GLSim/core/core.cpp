@@ -2,12 +2,12 @@
 #include <Windows.h>
 #include "GLSim/core/RenderMesh.h"
 
-Core::Core(Window* window)
+Core::Core(Window* window, int width, int height)
 	:m_window(window),
 	camera("Camera", ogl::tags.at((int)ogl::DEFAULT_TAGS::TAG_CAMERA)),
 	cameraComp(),
 	cameraTransform(),
-	m_renderSystem(),
+	m_renderSystem(width, height),
 	m_logicSystem(),
 	m_physicsSystem(),
 	logicCamera(),
@@ -25,7 +25,7 @@ Core::Core(Window* window)
 {
 	transform.rotate(glm::vec3(1, 0, 0), -90);
 	scene.addComponent(&transform);
-	mesh.unmapped = true;
+	mesh.unmapped = false;
 	m_modelLoader.loadMesh("C:/Projects/3DSim/res/models/monkey.fbx", &mesh);
 	scene.addComponent(&mesh);
 

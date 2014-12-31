@@ -43,6 +43,12 @@ void ShaderManager::setUniform(const std::string& name, const glm::mat4& m)
 
 bool ShaderManager::useProgram(int pass)
 {
+	if(pass == -1)
+	{
+		glUseProgram(0);
+		return true;
+	}
+	
 	m_currentProgram = m_programMap.at(pass);
 	if(m_programMap.at(pass) != NULL)
 	{

@@ -84,6 +84,9 @@
     <ClCompile Include="src\GLSim\logic\Logic_FreeFlyingCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\GLSim\core\GBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="res\shaders\BasicFragment.fs" />
@@ -154,5 +157,10 @@
     <CustomBuild Include="src\GLSim\logic\Logic_FreeFlyingCamera.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GLSim\core\GBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
