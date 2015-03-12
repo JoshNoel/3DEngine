@@ -116,6 +116,14 @@ glm::vec2 InputSystem::getMouseDelta()
 	return glm::vec2(deltax, deltay);
 }
 
+int InputSystem::getInputMode(int mode)
+{
+	if(mode == GLFW_CURSOR || mode == GLFW_STICKY_KEYS || mode == GLFW_STICKY_MOUSE_BUTTONS)
+		return glfwGetInputMode(m_window->getWindow(), mode);
+	else
+		return -1;
+}
+
 
 
 Window* InputSystem::m_window = nullptr;

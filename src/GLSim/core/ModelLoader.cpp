@@ -76,24 +76,17 @@ bool ModelLoader::loadMesh(const std::string& path, Mesh* obj) const
 						vertices[loops].normal.y += static_cast<float>(normal[1]);
 						vertices[loops].normal.z += static_cast<float>(normal[2]);
 
-						if(!obj->unmapped)
+						FbxStringList UVSetNameList;
+						FbxVector2 uv;
+						bool unmapped = false;
+						mesh->GetUVSetNames(UVSetNameList);
+						if(UVSetNameList.GetCount() != 0)
 						{
-							FbxStringList UVSetNameList;
-							FbxVector2 uv;
-							bool unmapped;
-							mesh->GetUVSetNames(UVSetNameList);
-							if(UVSetNameList[0])
-							{
-								if(!mesh->GetPolygonVertexUV(i, j, UVSetNameList[0], uv, unmapped))
-									printf("error getting uvs\n");
-								if(!unmapped)
-								{
-									vertices[loops].uv.x += static_cast<float>(uv[0]);
-									vertices[loops].uv.y += static_cast<float>(uv[1]);
-								}
-								else
-									obj->unmapped = true;
-							}
+							if(!mesh->GetPolygonVertexUV(i, j, UVSetNameList[0], uv, unmapped))
+								printf("error getting uvs\n");
+
+							vertices[loops].uv.x += static_cast<float>(uv[0]);
+							vertices[loops].uv.y += static_cast<float>(uv[1]);
 						}
 						/*
 						//If normal at index is different than new normal add a new vertex to array

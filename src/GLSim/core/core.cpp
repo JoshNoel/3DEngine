@@ -25,8 +25,7 @@ Core::Core(Window* window, int width, int height)
 {
 	transform.rotate(glm::vec3(1, 0, 0), -90);
 	scene.addComponent(&transform);
-	mesh.unmapped = false;
-	m_modelLoader.loadMesh("C:/Projects/3DSim/res/models/monkey.fbx", &mesh);
+	m_modelLoader.loadMesh("C:/Projects/3DSim/res/models/dragon.fbx", &mesh);
 	scene.addComponent(&mesh);
 
 	dirLightComp1.setColor(glm::vec3(1.0f, 1.0f, 1.0f));
@@ -39,7 +38,7 @@ Core::Core(Window* window, int width, int height)
 
 	pointLightComp1.setColor(glm::vec3(1.0f, 1.0f, 1.0f));
 	pointLightTrans1.translate(glm::vec3(0,2.0,4.0f));
-	pointLightComp1.setIntensity(15.0f);
+	pointLightComp1.setIntensity(1.0f);
 	pointLight1.addComponent(&pointLightComp1);
 	pointLight1.addComponent(&pointLightTrans1);
 	pointLightComp1.setType(Light::POINT);

@@ -15,6 +15,7 @@ public:
 	Light(float intensity = 1.0f);
 	virtual ~Light();
 
+	//////////// 0 <= intensity <= 1////////////////////////
 	void setIntensity(float);
 	inline float getIntensity() { return m_intensity; }
 

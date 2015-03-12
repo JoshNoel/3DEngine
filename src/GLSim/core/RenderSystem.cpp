@@ -2,6 +2,11 @@
 #include "GLSim/core/Transform.h"
 #include <Windows.h>
 #include "GLFW\glfw3.h"
+#ifdef _WIN64
+#define CPSTR LPCWSTR
+#else
+#define CPSTR LPCSTR
+#endif
 
 //TODO resize gbuffer dynamically with window
 RenderSystem::RenderSystem(int width, int height, bool shouldDefer)
@@ -28,10 +33,14 @@ RenderSystem::RenderSystem(int width, int height, bool shouldDefer)
 			fprintf(stdout, "Error adding Vertex Shader\n");
 		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::FRAGMENT, "C:/Projects/3DSim/res/shaders/d_mesh.fs", 0))
 			fprintf(stdout, "Error adding Fragment Shader\n");
-		/*if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::VERTEX, "C:/Projects/3DSim/res/shaders/d_light.vs", 1))
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::VERTEX, "C:/Projects/3DSim/res/shaders/d_light.vs", 1))
 			fprintf(stdout, "Error adding Vertex Shader\n");
-		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::FRAGMENT, "C:/Projects/3DSim/res/shaders/d_light.fs", 1))
-			fprintf(stdout, "Error adding Fragment Shader\n");*/
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::FRAGMENT, "C:/Projects/3DSim/res/shaders/d_pointlight.fs", 1))
+			fprintf(stdout, "Error adding Fragment Shader\n");
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::VERTEX, "C:/Projects/3DSim/res/shaders/d_light.vs", 2))
+			fprintf(stdout, "Error adding Vertex Shader\n");
+		if(!m_shaderManager.addShader(ShaderManager::SHADER_TYPE::FRAGMENT, "C:/Projects/3DSim/res/shaders/d_dirlight.fs", 2))
+			fprintf(stdout, "Error adding Fragment Shader\n");
 	}
 	/*
 	/2D texture for each attribute + depth
@@ -95,39 +104,17 @@ bool RenderSystem::addLight(Object* l)
 
 void RenderSystem::render(float interp, Window* window)
 {
+	//////FORWARD/////
 	if(p_camera && !m_deferred)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		m_shaderManager.useProgram(0);
 
-		/*glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-
-		glDrawArrays(GL_TRIANGLES, 0, 12*3);
-		glDisableVertexAttribArray(0);*/
 		p_camera->getComponent<Transform>()->receiveMessage(MessageRender(interp, &m_shaderManager, glm::mat4(1.0), false));
 		p_camera->getComponent<Camera>()->receiveMessage(MessageRender(interp, &m_shaderManager, glm::mat4(1.0), false));
-		//Transform* t = p_camera->getComponent<Transform>().get();
-		//glm::mat4 view = glm::lookAt(t->getPosition(), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+
 		Transform* cam = p_camera->getComponent<Transform>();
-		//glm::mat4 view = cam->getTranslationMat()._inverse() * cam->getRotationMat();
-		glm::mat4 view = glm::inverse(cam->getTranslationMat() * cam->getRotationMat());//glm::lookAt(cam->getPosition(), cam->getForward(), cam->getUp());
-		/*glm::mat4 t = cam->getRotationMat();
-		fprintf(stdout, "(%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d)\n",
-			t[0][0], t[0][1], t[0][2], t[0][3],
-			t[1][0], t[1][1], t[1][2], t[1][3],
-			t[2][0], t[2][1], t[2][2], t[2][3],
-			t[3][0], t[3][1], t[3][2], t[3][3]);*/
-		//fprintf(stdout, "(%d, %d, %d) || (%d, %d, %d)\n", cam->getPosition().x, cam->getPosition().y, cam->getPosition().z, cam->getOrientation().x, cam->getOrientation().y, cam->getOrientation().z);
-		//glm::mat4 v2 = glm::lookAt(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-		/*sendMessage(MessageRender(interp, &m_shaderManager, p_camera->getComponent<Camera>()->getPerspective() *
-			p_camera->getComponent<Transform>()->getModelNoScale(), true));*/
-
-		//m_shaderManager.setUniform("MVP", p_camera->getComponent<Camera>()->getPerspective() * glm::translate(glm::vec3(0, 0, -6)));
-
-		//m_shaderManager.setUniform("M", glm::mat4());
-
+		glm::mat4 view = glm::inverse(cam->getTranslationMat() * cam->getRotationMat());
 		
 		///////////////Directional Lights//////////////////////////
 		for(unsigned int i = 0; i < m_dirLightList.size(); ++i)
@@ -152,10 +139,15 @@ void RenderSystem::render(float interp, Window* window)
 
 		sendMessage(MessageRender(interp, &m_shaderManager, p_camera->getComponent<Camera>()->getPerspective() * view, true));
 	}
+
+	//////DEFERRED/////
 	else if(p_camera && m_deferred)
 	{
 		/////GEOMETRY PASS////////
 		m_gbuffer.bindDraw();
+
+		glDisable(GL_BLEND);
+		glDepthMask(true);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		m_shaderManager.useProgram(0);
 
@@ -167,13 +159,20 @@ void RenderSystem::render(float interp, Window* window)
 		sendMessage(MessageRender(interp, &m_shaderManager, p_camera->getComponent<Camera>()->getPerspective() * view, true));
 		
 		/////LIGHTING PASS///////
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		m_gbuffer.bindRead();
-		m_shaderManager.useProgram(1);
+		
 
 		if(!m_checkGBuffer)
 		{
+			glDepthMask(false);
+			glDisable(GL_DEPTH_TEST);
+			glEnable(GL_BLEND);
+			glBlendEquation(GL_FUNC_ADD);
+			glBlendFunc(GL_ONE, GL_ONE);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			m_gbuffer.bindRead();
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			m_shaderManager.useProgram(1);
 			sendMessage(MessageRender(interp, &m_shaderManager, p_camera->getComponent<Camera>()->getPerspective() * view, true));
 		}
 		else
@@ -204,7 +203,7 @@ void RenderSystem::render(float interp, Window* window)
 	m_shaderManager.unbindProgram();
 	if (window == nullptr)
 	{
-		OutputDebugString((LPCSTR)"RenderSystem Window pointer is null!!!!");
+		OutputDebugString((CPSTR)"RenderSystem Window pointer is null!!!!");
 	}
 	else
 	{
@@ -212,22 +211,13 @@ void RenderSystem::render(float interp, Window* window)
 	}
 
 }
-/*Qt with regular event loop for editor
+/*
+Qt with regular event loop for editor
 Embedded qwindow use qwidget::createwindowcontainer
 REnder to this window
 SA: replace w/ custom event loop
+
+
+Qt for editor, glfw for game window for performance
 http://stackoverflow.com/questions/12718296/is-there-a-way-to-use-qt-without-qapplicationexec
-
-
-
-
-
-
-
-
-
-
-
-
-
 */

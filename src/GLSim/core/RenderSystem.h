@@ -13,7 +13,7 @@ namespace ogl { class RenderSystem; }
 class RenderSystem : public System
 {
 public:
-	RenderSystem(int width, int height, bool deferred = true);
+	RenderSystem(int width, int height, bool deferred = false);
 	~RenderSystem();
 
 	void render(float interp, Window* window);

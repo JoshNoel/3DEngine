@@ -1,0 +1,19 @@
+Engine gui
+
+	3D editing window
+
+Rendering Improvements
+	SSAO
+
+	Shadows
+
+	AA
+
+	Light types (point, spot, hemi....)
+
+SceneGraph
+
+Bug Fixes
+	Detect abscense of UV map in fbx loader
+	CHANGE ABSOLUTE PATHS TO RELATIVE
+

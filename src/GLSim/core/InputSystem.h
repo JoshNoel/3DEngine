@@ -29,6 +29,9 @@ public:
 
 	static glm::vec2 getMousePos();
 	static glm::vec2 getMouseDelta();
+
+	//mode = glfw mode to check can be GLFW_CURSOR GLFW_STICK_KEYS GLFW_STICK_MOUSE_BUTTONS
+	static int getInputMode(int mode);
 private:
 	InputSystem();
 	InputSystem(const InputSystem& copy);

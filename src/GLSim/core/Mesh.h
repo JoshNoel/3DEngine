@@ -36,8 +36,6 @@ public:
 	virtual ~Mesh();
 
 	virtual void setVertices(const std::vector<Vertex>& verts, const std::vector<GLushort>& indices);
-	bool unmapped;
-
 
 protected:
 
